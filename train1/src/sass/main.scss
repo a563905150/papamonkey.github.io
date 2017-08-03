@@ -8,14 +8,21 @@ $small-font-size:10px;
 $default-margin:15px;
 
 $header-height:80px;
+$footer-height:80px;
 $nav-btn-height:24px;
 $nav-btn-vpad:8px;
 $main-color:#09BB07;
 
 html {
     font-size:12px;
+    margin:0;
+    padding:0;
 }
 
+body {
+    padding:0;
+    margin:0;
+}
 a {
     text-decoration:none;
 }
@@ -30,6 +37,10 @@ h2 {
 
 h3 {
     font-size:$medium-font-size;
+}
+
+.clearfix {
+    clear:both;
 }
 
 .left {
@@ -134,6 +145,14 @@ h3 {
 #main {
     margin-top:$header-height;
 
+    .separator {
+        display:block;
+        margin:0 auto;
+        border:0;
+        border-top:5px solid black;
+        max-width:520px;
+    }
+
     #about {
         background-color:#ccc;
         padding:10px 15px;
@@ -164,13 +183,6 @@ h3 {
         background-color:#eee;
         overflow:hidden;
 
-        hr {
-            display:block;
-            margin:0 auto;
-            border:0;
-            border-top:5px solid black;
-            max-width:520px;
-        }
 
         .cards {
             margin-top:20px;
@@ -201,5 +213,57 @@ h3 {
             }
         }
     }
+    
+    #contactus {
+        padding-top:10px;
+        padding-bottom:20px;//试试去掉这句和上面那句，将由于H2的关系而出现margin合并
+        background-color:#ccc;
+        overflow:hidden;
+        .detail {
+            float:left;
+            width:50%;
+            text-align:center;
+        }
+        .sociliates {
+            margin-left:50%;
+            ul {
+                margin:20px auto;
+                li {
+                    display:inline-block;
+                    margin-right:10px;
+                    a {
+                        display:block;
+                        border-radius:50%;
+                        padding:8px;
+                        width:$medium-font-size + 8px;
+                        height:$medium-font-size + 8px;
+                        border:1px solid white;
+                        font-size:$medium-font-size;
+                        text-align:center;
+                        i.fa-wechat {
+                            color:$main-color;
+                        }
+
+                        i.fa-qq {
+                            color:#337ab7;    
+                        }
+
+                        &:hover {
+                            border:1px solid $main-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
+#footer {
+    background-color:black;
+    color:white;
+    height:$footer-height;
+    h3 {
+        line-height:$footer-height;
+        margin:0;
+    }
+}
