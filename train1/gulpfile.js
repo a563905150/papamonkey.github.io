@@ -13,10 +13,7 @@ gulp.task('serve', function() {
     }))
 })
 
-gulp.task('sass', function() {
-    gulp.src('src/sass/*.scss')
-        .pipe(sass())
-        .pipe(gulp.dest('dist'))
+gulp.task('vendor', function() {
     gulp.src([
         'node_modules/bootstrap/dist/css/bootstrap.min.css',
         'node_modules/bootstrap/dist/js/bootstrap.min.js',
@@ -25,12 +22,18 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('dist'))
 })
 
+gulp.task('sass', function() {
+    gulp.src('src/sass/*.scss')
+        .pipe(sass())
+        .pipe(gulp.dest('dist'))
+})
+
 gulp.task('html', function() {
     return gulp.src('src/index.html')
         .pipe(gulp.dest('./'))
 })
 
-gulp.task('watch', ['sass', 'html'], function() {
+gulp.task('watch', ['vendor', 'sass', 'html'], function() {
 	return gulp.watch('src/**', ['sass', 'html'])
 })
 
