@@ -1,12 +1,14 @@
 $huge-font-size:48px;
 $large-font-size:32px;
 $medium-font-size:24px;
+$strong-font-size:18px;
 $normal-font-size:12px;
 $small-font-size:10px;
 
 $header-height:80px;
 $nav-btn-height:24px;
 $nav-btn-vpad:8px;
+$main-color:#09BB07;
 
 html {
     font-size:12px;
@@ -24,8 +26,38 @@ h3 {
     font-size:$medium-font-size;
 }
 
+.left {
+    float:left;
+}
+
+.right {
+    float:right;
+}
+
 .text-center {
     text-align:center;
+}
+
+.container {
+    margin:0 auto;
+    width:1000px;
+    padding-left:15px;
+    padding-right:15px;
+}
+
+.row {
+    margin-left:-15px;
+    margin-right:-15px;
+}
+
+.badge {
+    display:inline-block;
+    padding:4px 8px;
+    border-radius:4px;
+    background-color:$main-color;
+    color:white;
+    font-size:$small-font-size;
+    font-weight:bold;
 }
 
 #header {
@@ -34,7 +66,7 @@ h3 {
     left:0;
     width:100%;
     height:$header-height;
-    background-color:#09BB07;
+    background-color:$main-color;
     box-shadow:0 4px 8px 0 rgba(7, 17, 27, 0.3);
 
     #logo {
@@ -49,6 +81,7 @@ h3 {
         ul {
             float:right;
             margin:($header-height - $nav-btn-height - $nav-btn-vpad * 2) / 2;
+            overflow:hidden;
             li {
                 display:inline-block;
                 padding:$nav-btn-vpad;
@@ -78,9 +111,28 @@ h3 {
 
 #main {
     margin-top:$header-height;
+    #about {
+        background-color:#ccc;
+        padding:10px 15px;
+        #intro {
+            width:700px;
+            p {
+                text-indent:2em;
+                font-size:$strong-font-size;
+            }
+            #category {
+                margin-top:16px;
+            }
+        }
+        #creator {
+            overflow:hidden;
+            .avatar {
+                display:block;
+                max-width:250px;
+                border-radius:50%;
+                margin:10px auto;
+            }
+        }
+    }
 }
 
-.container {
-    margin:0 auto;
-    width:1000px;
-}
